@@ -44,11 +44,12 @@ function getNationalParks(query, maxResults=10) {
     })
     .then(responseJson => {
       if (responseJson.total === "0") {
+        $("#results-list").empty();
         $("#js-error-message").text(`Something went wrong, no parks found. Double check your state abbreviations, and make sure to separate by commas.`);
       } else {
       displayResults(responseJson)}
     })
-    .catch(error => console.log(error));
+    .catch(error => alert("Something went wrong. Please try again."));
 }
 
 function formListener() {
